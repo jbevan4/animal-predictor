@@ -10,7 +10,7 @@ init-prod:
 	python -m venv prod-venv
 	pip install -r requirements/prod.txt
 
-test:
+test: init-local-dev
 	pytest -svv
 
 .PHONE: init-local-dev init-notebook init-prod test
