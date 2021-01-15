@@ -1,14 +1,16 @@
-init-local-dev:
-  pip install -r requirements/dev.txt
+init-local-dev: 
+	python -m venv dev-venv
+	pip install -r requirements/dev.txt
 
 init-notebook:
-  pip install -r requirements/notebook.txt
+	python -m venv notebook-venv
+	pip install -r requirements/notebook.txt
 
 init-prod:
-  pip install -r requirements/prod.txt
+	python -m venv prod-venv
+	pip install -r requirements/prod.txt
 
 test:
-  pytest -svv
+	pytest -svv
 
 .PHONE: init-local-dev init-notebook init-prod test
-  
