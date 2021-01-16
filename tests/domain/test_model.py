@@ -22,14 +22,14 @@ def test_model_can_be_compiled(model):
     assert model.compiled == True
 
 
-def test_model_can_be_trained_after_being_compiled(model):
+def test_model_can_be_fitted_after_being_compiled(model):
     model.compile()
-    model.train()
-    assert model.trained == True
+    model.fit()
+    assert model.fitted == True
 
 
-def test_model_errors_when_training_without_compiling(model):
+def test_model_errors_when_fitted_without_compiling(model):
     with raises(ValueError) as not_compiled_error:
-        model.train()
-    assert "Your model is not compiled. Please run model.compile() before attempting to train the model." == str(
+        model.fit()
+    assert "Your model is not compiled. Please run model.compile() before attempting to fit the model." == str(
         not_compiled_error.value)
