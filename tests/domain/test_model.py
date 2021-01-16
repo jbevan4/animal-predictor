@@ -33,3 +33,10 @@ def test_model_errors_when_fitted_without_compiling(model):
         model.fit()
     assert "Your model is not compiled. Please run model.compile() before attempting to fit the model." == str(
         not_compiled_error.value)
+
+
+def test_model_can_predict_a_new_image(model):
+    model.compile()
+    model.fit()
+    classification = model.predict("new_image")
+    assert classification == "Dog"

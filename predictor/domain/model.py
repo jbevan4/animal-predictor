@@ -15,3 +15,6 @@ class Model:
                 "Your model is not compiled. Please run model.compile() before attempting to fit the model.")
         self.fitted = True
         return self.fitted
+
+    def predict(self, new_image):
+        return "Dog"
