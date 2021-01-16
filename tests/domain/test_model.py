@@ -14,3 +14,11 @@ def test_model_can_be_compiled():
     model = Model(processed_images)
     model.compile()
     assert model.compiled == True
+
+
+def test_model_can_be_trained_after_being_compiled():
+    processed_images = ["./image.png", "./image.jpg", "./image.jpeg"]
+    model = Model(processed_images)
+    model.compile()
+    model.train()
+    assert model.trained == True
