@@ -40,3 +40,10 @@ def test_model_can_predict_a_new_image(model):
     model.fit()
     classification = model.predict("new_image")
     assert classification == "Dog"
+
+
+def test_model_will_error_if_attempting_to_predict_without_compiling(model):
+    with raises(ValueError) as not_compiled_error:
+        model.predict("new_image")
+    assert "Your model is not compiled. Please run model.compile() before attempting to fit the model." == str(
+        not_compiled_error.value)
