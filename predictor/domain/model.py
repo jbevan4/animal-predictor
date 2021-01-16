@@ -10,5 +10,8 @@ class Model:
         return self.compiled
 
     def train(self):
+        if not self.compiled:
+            raise ValueError(
+                "Your model is not compiled. Please run model.compile() before attempting to train the model.")
         self.trained = True
         return self.trained
